@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+//@author Kevin Cuevas
 public class Actividad3 {
     static class Nodo {
         double coef;
@@ -60,3 +61,4 @@ public class Actividad3 {
         for (double x = 0.0; x <= 5.0; x += 0.5) System.out.printf("%.1f\t%.2f%n", x, poli.evaluar(x));
     }
 }
+
