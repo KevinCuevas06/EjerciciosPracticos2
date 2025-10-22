@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+//author Kevin Cuevas
 public class Actividad4 {
     static class Nodo {
         double coef;
@@ -45,3 +45,4 @@ public class Actividad4 {
         lista.mostrar();
     }
 }
+
