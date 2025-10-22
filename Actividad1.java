@@ -5,6 +5,7 @@ import java.util.Scanner;
  * Actividad 01: Manipulación de Lista Enlazada
  * Objetivo: Desarrollar un programa que implemente operaciones básicas sobre una lista enlazada simple de números enteros positivos.
  */
+//author Kevin Cuevas
 public class Actividad1 {
     static class Nodo {
         int dato;
@@ -68,3 +69,4 @@ public class Actividad1 {
         lista.mostrar();
     }
 }
+
