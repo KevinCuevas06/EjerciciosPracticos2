@@ -1,5 +1,7 @@
+
 import java.io.*;
 import java.util.Scanner;
+//@author kevin cuevas
 
 public class Actividad2 {
     static class Nodo {
@@ -72,3 +74,4 @@ public class Actividad2 {
         } while (opcion != 4);
     }
 }
+
