@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+//author Kevin Cuevas
 public class Actividad5 {
     static class Nodo {
         char caracter;
@@ -60,3 +60,4 @@ public class Actividad5 {
         lista.mostrar();
     }
 }
+
