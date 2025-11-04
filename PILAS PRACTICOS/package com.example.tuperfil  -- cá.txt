@@ -5,7 +5,7 @@ Autor: Kevin Eduardo Cuevas Castillo
 
 */
 
-// este sirve para meter nombres y mostrarlos al reves usando pila
+// meter nombres y mostrarlos al reves usando pila
 
 import java.util.Scanner;
 import java.util.Stack;
@@ -30,3 +30,4 @@ public class PilaDeNombres {
         }
     }
 }
+
