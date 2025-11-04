@@ -11,6 +11,7 @@
 # Ejercicios practicos de colas – Kevin Cuevas
 | Actividad | Descripción | Enlace |
 |------------|--------------|--------|
-| **Ejercicio 1** | Comparación de colas para verificar si son idénticas | [Ver código](ComparadorDeColas.java) |
+| **Ejercicio 1** | Comparación de colas para verificar si son idénticas | [Ver código](https://github.com/KevinCuevas06/EjerciciosPracticos2/blob/main/ComparadorDeColas.txt) |
 | **Ejercicio 2** | Simulación de supermercado con carritos y cajas | [Ver código](SimulacionSupermercado.java) |
 | **Ejercicio 3** | Simulación de atención al cliente en supermercado “Esperanza” | [Ver código](SimulacionEsperanza.java) |
+
