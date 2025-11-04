@@ -1,0 +1,79 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Random;
+/*
+Autor: Kevin Eduardo Cuevas Castillo*/
+/**
+ * En esta clase hago la simulación de 7 horas.
+ * 
+ */
+public class SimulacionEsperanza {
+
+    private Queue<Integer> filaClientes = new LinkedList<>();
+    private int clientesAtendidos = 0;
+    private int maxTamanioFila = 0;
+    private int maxTiempoEspera = 0;
+    private boolean caja4Abierta = false;
+    private int tiempoCaja4 = 0;
+
+    private int[] tiempoRestanteCaja = new int[4]; // tiempos de atención
+
+    Random rnd = new Random();
+
+    public void simular() {
+        int minutos = 7 * 60; // 7 horas
+
+        // Simulación minuto a minuto
+        for (int minuto = 1; minuto <= minutos; minuto++) {
+
+            // Llegada de clientes (1 por minuto en promedio)
+            filaClientes.offer(minuto);
+
+            // Registro para estadísticas
+            maxTamanioFila = Math.max(maxTamanioFila, filaClientes.size());
+
+            // Abrir caja 4 si hay más de 20 clientes
+            if (filaClientes.size() > 20 && !caja4Abierta) {
+                caja4Abierta = true;
+                tiempoCaja4 = minuto;
+                System.out.println("Se abre la cuarta caja en el minuto " + minuto);
+            }
+
+            // Procesar cajas
+            for (int i = 0; i < (caja4Abierta ? 4 : 3); i++) {
+
+                // Si está ocupada, reduce el tiempo
+                if (tiempoRestanteCaja[i] > 0) {
+                    tiempoRestanteCaja[i]--;
+                } else if (!filaClientes.isEmpty()) {
+                    // Atiende nuevo cliente
+                    int llegadaCliente = filaClientes.poll();
+                    int tiempoEspera = minuto - llegadaCliente;
+                    maxTiempoEspera = Math.max(maxTiempoEspera, tiempoEspera);
+
+                    // Tiempo aleatorio entre 2 a 4 minutos
+                    tiempoRestanteCaja[i] = rnd.nextInt(3) + 2;
+
+                    clientesAtendidos++;
+                }
+            }
+        }
+
+        // Resultados
+        System.out.println("\n=== RESULTADOS ===");
+        System.out.println("Clientes atendidos: " + clientesAtendidos);
+        System.out.println("Tamaño máximo de la fila: " + maxTamanioFila);
+        System.out.println("Tiempo máximo de espera: " + maxTiempoEspera + " min");
+
+        if (caja4Abierta) {
+            System.out.println("La cuarta caja se abrió en el minuto: " + tiempoCaja4);
+        } else {
+            System.out.println("La cuarta caja nunca se abrió.");
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("=== Simulación Esperanza (7 horas) ===");
+        new SimulacionEsperanza().simular();
+    }
+}

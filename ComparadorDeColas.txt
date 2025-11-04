@@ -1,0 +1,62 @@
+import java.util.LinkedList;
+import java.util.Queue;
+/*
+Autor: Kevin Eduardo Cuevas Castillo*/
+
+/**
+ * En esta clase implemento la comparación de dos colas.
+ * Agregué encapsulamiento
+ */
+public class ComparadorDeColas {
+
+    /**
+     * Método para comparar dos colas sin modificar su contenido(método de comparación).
+     
+     */
+    public static <T> boolean sonIdenticas(Queue<T> cola1, Queue<T> cola2) {
+        if (cola1.size() != cola2.size()) {
+            return false;
+        }
+
+        Queue<T> aux1 = new LinkedList<>();
+        Queue<T> aux2 = new LinkedList<>();
+        boolean iguales = true;
+
+        // Comparo elemento por elemento
+        while (!cola1.isEmpty()) {
+            T e1 = cola1.poll();
+            T e2 = cola2.poll();
+
+            if (!e1.equals(e2)) {
+                iguales = false;
+            }
+
+            // Aquí aclaro que guardo los elementos para restaurar después
+            aux1.offer(e1);
+            aux2.offer(e2);
+        }
+
+        // Restaura colas originales (esto lo pongo porque el profe lo pidió)
+        cola1.addAll(aux1);
+        cola2.addAll(aux2);
+
+        return iguales;
+    }
+
+    public static void main(String[] args) {
+        // Aquí hago una prueba para demostrar que sí funciona
+
+        Queue<Integer> colaA = new LinkedList<>();
+        Queue<Integer> colaB = new LinkedList<>();
+
+        colaA.offer(1); colaA.offer(2); colaA.offer(3);
+        colaB.offer(1); colaB.offer(2); colaB.offer(3);
+
+        System.out.println("¿Las colas son iguales?: " + sonIdenticas(colaA, colaB));
+
+        colaB.poll(); // cambio un valor para que ya no sean iguales
+        colaB.offer(99);
+
+        System.out.println("¿Las colas son iguales después del cambio?: " + sonIdenticas(colaA, colaB));
+    }
+}

@@ -1,0 +1,83 @@
+import java.util.LinkedList;
+import java.util.Queue;
+/*
+Autor: Kevin Eduardo Cuevas Castillo*/
+
+/**
+ * Aquí hago una simulación simple del supermercado.
+ 
+ */
+public class SimulacionSupermercado {
+
+    private Queue<Integer> carritos;
+    private Queue<Integer>[] cajas;
+
+    @SuppressWarnings("unchecked")
+    public SimulacionSupermercado() {
+        // Inicializo 25 carritos libres
+        carritos = new LinkedList<>();
+        for (int i = 1; i <= 25; i++) carritos.offer(i);
+
+        // Inicializo 3 cajas
+        cajas = new Queue[3];
+        for (int i = 0; i < cajas.length; i++) {
+            cajas[i] = new LinkedList<>();
+        }
+    }
+
+    /**
+     * Este método simula la llegada de un cliente.
+     * Aquí explico que si no hay carritos en el supermercado, el cliente "espera".
+     */
+    public void clienteLlega(int idCliente) {
+        if (carritos.isEmpty()) {
+            System.out.println("Cliente " + idCliente + " espera: no hay carritos.");
+            return;
+        }
+
+        int carritoTomado = carritos.poll();
+        System.out.println("Cliente " + idCliente + " toma el carrito " + carritoTomado);
+
+        // Elijo la caja con menos clientes 
+        int cajaElegida = 0;
+        for (int i = 1; i < cajas.length; i++) {
+            if (cajas[i].size() < cajas[cajaElegida].size()) {
+                cajaElegida = i;
+            }
+        }
+
+        cajas[cajaElegida].offer(idCliente);
+        System.out.println("Cliente " + idCliente + " entra a la caja " + (cajaElegida + 1));
+    }
+
+    /**
+     * Aquí simulo que un cliente paga y libera el carrito.
+     */
+    public void atenderClientes() {
+        for (int i = 0; i < cajas.length; i++) {
+            if (!cajas[i].isEmpty()) {
+                int cliente = cajas[i].poll();
+                int carritoDevuelto = (int)(Math.random() * 25) + 1;
+                carritos.offer(carritoDevuelto);
+
+                System.out.println("Caja " + (i + 1) + " atendió al cliente " + cliente +
+                        " y devuelve el carrito " + carritoDevuelto);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("=== Simulación Supermercado ===");
+
+        SimulacionSupermercado s = new SimulacionSupermercado();
+
+        // Aquí simulo varios clientes llegando
+        for (int i = 1; i <= 10; i++) {
+            s.clienteLlega(i);
+        }
+
+        // Y ahora simulo que pasan algunos minutos
+        System.out.println("\nAtendiendo clientes...\n");
+        s.atenderClientes();
+    }
+}
