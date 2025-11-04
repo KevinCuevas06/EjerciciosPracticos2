@@ -1,0 +1,31 @@
+/*
+
+Ejercicios Prácticos de Pilas en Java 
+Autor: Kevin Eduardo Cuevas Castillo 
+
+*/
+
+// este sirve para checar si los parentesis estan bien puestos o no
+
+import java.util.Stack;
+
+public class BalanceoParentesis {
+
+    public static boolean estaBalanceada(String expr) {
+        Stack<Character> pila = new Stack<>();
+
+        for (char c : expr.toCharArray()) {
+            if (c == '(') pila.push(c); // si hay un ( lo meto
+            else if (c == ')') {
+                if (pila.isEmpty()) return false; // si no hay quien lo cierre, ta mal
+                pila.pop(); // quito uno cuando se cierra bien
+            }
+        }
+        return pila.isEmpty(); // si quedo vacia esta balanceada
+    }
+
+    public static void main(String[] args) {
+        System.out.println(estaBalanceada("((2+3)*5)")); // deberia salir true
+        System.out.println(estaBalanceada("((2+3)*5"));  // deberia salir false
+    }
+}

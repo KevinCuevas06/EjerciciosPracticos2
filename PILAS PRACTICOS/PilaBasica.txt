@@ -1,0 +1,28 @@
+/*
+Ejercicios Prácticos de Pilas en Java 
+Autor: Kevin Eduardo Cuevas Castillo 
+
+*/
+
+// aqui cree una pila basica solo pa practicar push y pop
+
+import java.util.Stack;
+
+public class PilaBasica {
+    public static void main(String[] args) {
+        Stack<Integer> pila = new Stack<>();
+
+        // aqui meto los numeros a la pila
+        pila.push(5);
+        pila.push(10);
+        pila.push(15);
+        pila.push(20);
+
+        // aqui saco dos elementos (los de arriba)
+        pila.pop();
+        pila.pop();
+
+        // muestro lo que queda en la pila
+        System.out.println("Contenido actual de la pila: " + pila);
+    }
+}

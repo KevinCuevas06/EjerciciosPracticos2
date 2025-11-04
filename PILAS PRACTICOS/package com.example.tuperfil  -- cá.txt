@@ -1,0 +1,32 @@
+/*
+
+Ejercicios Prácticos de Pilas en Java 
+Autor: Kevin Eduardo Cuevas Castillo 
+
+*/
+
+// este sirve para meter nombres y mostrarlos al reves usando pila
+
+import java.util.Scanner;
+import java.util.Stack;
+
+public class PilaDeNombres {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Stack<String> pila = new Stack<>();
+
+        String nombre;
+        while (true) {
+            System.out.print("Ingrese un nombre (FIN para salir): ");
+            nombre = sc.nextLine();
+            if (nombre.equalsIgnoreCase("FIN")) break;
+            pila.push(nombre); // aqui voy metiendo cada nombre
+        }
+
+        // aqui los saco para verlos en orden inverso
+        System.out.println("Nombres en orden inverso:");
+        while (!pila.isEmpty()) {
+            System.out.println(pila.pop());
+        }
+    }
+}

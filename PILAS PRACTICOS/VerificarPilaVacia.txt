@@ -1,0 +1,21 @@
+/*
+
+Ejercicios Prácticos de Pilas en Java 
+Autor: Kevin Eduardo Cuevas Castillo 
+
+*/
+
+// aqui solo verifico si una pila esta vacia o no
+
+import java.util.Stack;
+
+public class VerificarPilaVacia {
+    public static void main(String[] args) {
+        Stack<Integer> pila = new Stack<>();
+
+        System.out.println("¿Está vacía la pila? " + pila.isEmpty()); // deberia salir true
+
+        pila.push(1); // meto un dato para probar
+        System.out.println("¿Está vacía la pila? " + pila.isEmpty()); // ahora false
+    }
+}
