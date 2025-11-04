@@ -5,7 +5,7 @@ Autor: Kevin Eduardo Cuevas Castillo
 
 */
 
-// este sirve para checar si los parentesis estan bien puestos o no
+//checar si los parentesis estan bien puestos o no
 
 import java.util.Stack;
 
@@ -29,3 +29,4 @@ public class BalanceoParentesis {
         System.out.println(estaBalanceada("((2+3)*5"));  // deberia salir false
     }
 }
+
