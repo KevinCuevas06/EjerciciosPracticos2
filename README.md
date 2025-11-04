@@ -8,3 +8,9 @@
 | **Actividad 4** | Lista enlazada circular | [Ver código](Actividad4.java) |
 | **Actividad 5** | Lista doblemente enlazada de caracteres | [Ver código](Actividad5.java) |
 
+# Ejercicios practicos de colas – Kevin Cuevas
+| Actividad | Descripción | Enlace |
+|------------|--------------|--------|
+| **Ejercicio 1** | Comparación de colas para verificar si son idénticas | [Ver código](ComparadorDeColas.java) |
+| **Ejercicio 2** | Simulación de supermercado con carritos y cajas | [Ver código](SimulacionSupermercado.java) |
+| **Ejercicio 3** | Simulación de atención al cliente en supermercado “Esperanza” | [Ver código](SimulacionEsperanza.java) |
